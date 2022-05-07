@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
 
-import { config } from '@grafana/runtime';
 import { Icon, IconName } from '@grafana/ui';
 
 export interface FooterLink {
   text: string;
-  id?: string;
-  icon?: IconName;
+  icon?: string;
   url?: string;
   target?: string;
 }
@@ -14,48 +12,35 @@ export interface FooterLink {
 export let getFooterLinks = (): FooterLink[] => {
   return [
     {
-      text: 'Documentation',
+      text: 'Dokumentation',
       icon: 'document-info',
-      url: 'https://grafana.com/docs/grafana/latest/?utm_source=grafana_footer',
+      url: 'https://doc.elmatic-align.de',
       target: '_blank',
     },
     {
       text: 'Support',
       icon: 'question-circle',
-      url: 'https://grafana.com/products/enterprise/?utm_source=grafana_footer',
+      url: 'https://support.elmatic-align.de',
       target: '_blank',
     },
     {
-      text: 'Community',
+      text: 'Elmatic',
       icon: 'comments-alt',
-      url: 'https://community.grafana.com/?utm_source=grafana_footer',
+      url: 'https://www.elmatic.de',
       target: '_blank',
     },
   ];
 };
 
 export let getVersionLinks = (): FooterLink[] => {
-  const { buildInfo, licenseInfo } = config;
   const links: FooterLink[] = [];
-  const stateInfo = licenseInfo.stateInfo ? ` (${licenseInfo.stateInfo})` : '';
 
-  links.push({ text: `${buildInfo.edition}${stateInfo}`, url: licenseInfo.licenseUrl });
-
-  if (buildInfo.hideVersion) {
-    return links;
-  }
-
-  links.push({ text: `v${buildInfo.version} (${buildInfo.commit})` });
-
-  if (buildInfo.hasUpdate) {
-    links.push({
-      id: 'updateVersion',
-      text: `New version available!`,
-      icon: 'download-alt',
-      url: 'https://grafana.com/grafana/download?utm_source=grafana_footer',
-      target: '_blank',
-    });
-  }
+  //links.push({ text: `${buildInfo.edition}${stateInfo}`, url: licenseInfo.licenseUrl });
+  links.push({
+    text: `Ausloggen`,
+    url:
+      'https://auth.elmatic-align.de/auth/realms/Xenon/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Fxenon.elmatic-align.de%2Flogin%2Fgeneric_oauth',
+  });
 
   return links;
 };
@@ -77,8 +62,8 @@ export const Footer: FC = React.memo(() => {
         <ul>
           {links.map((link) => (
             <li key={link.text}>
-              <a href={link.url} target={link.target} rel="noopener" id={link.id}>
-                {link.icon && <Icon name={link.icon} />} {link.text}
+              <a href={link.url} target={link.target} rel="noopener">
+                {link.icon && <Icon name={link.icon as IconName} />} {link.text}
               </a>
             </li>
           ))}
