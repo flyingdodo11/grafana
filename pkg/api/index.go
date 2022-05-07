@@ -392,7 +392,7 @@ func (hs *HTTPServer) addProfile(navTree []*dtos.NavLink, c *models.ReqContext) 
 
 func (hs *HTTPServer) addHelpLinks(navTree []*dtos.NavLink, c *models.ReqContext) []*dtos.NavLink {
 	if setting.HelpEnabled {
-		helpVersion := fmt.Sprintf(`%s v%s (%s)`, setting.ApplicationName, setting.BuildVersion, setting.BuildCommit)
+		helpVersion := fmt.Sprintf(`Xenon 1.3`)
 		if hs.Cfg.AnonymousHideVersion && !c.IsSignedIn {
 			helpVersion = setting.ApplicationName
 		}
