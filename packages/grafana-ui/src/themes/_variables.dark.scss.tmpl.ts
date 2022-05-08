@@ -130,10 +130,10 @@ $hr-border-color: $dark-9;
 
 // Panel
 // -------------------------
-$panel-bg: ${theme.components.panel.background};
+$panel-bg: rgba(0,204,255,0.1);
 $panel-border: 1px solid ${theme.components.panel.borderColor};
 $panel-header-hover-bg: ${theme.colors.action.hover};
-$panel-box-shadow: ${theme.components.panel.boxShadow};
+$panel-box-shadow: 0px 0px 4px 0px #00ccff;
 $panel-corner: $panel-bg;
 
 // page header
@@ -253,8 +253,8 @@ $navbarBorder: 1px solid $dark-6;
 
 // Sidemenu
 // -------------------------
-$side-menu-bg: $panel-bg;
-$side-menu-bg-mobile: $panel-bg;
+$side-menu-bg: ${theme.components.panel.background};
+$side-menu-bg-mobile: ${theme.components.panel.background};
 $side-menu-border: none;
 $side-menu-item-hover-bg: ${theme.v1.colors.bg2};
 $side-menu-shadow: 0 0 30px #111;
