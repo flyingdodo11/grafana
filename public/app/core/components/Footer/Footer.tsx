@@ -39,7 +39,7 @@ export let getVersionLinks = (): FooterLink[] => {
   links.push({
     text: `Ausloggen`,
     url:
-      'https://auth.elmatic-align.de/auth/realms/Xenon/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Fxenon.elmatic-align.de%2Flogin%2Fgeneric_oauth',
+      'https://auth.elmatic-xenon.de/auth/realms/Xenon/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Fcloud.elmatic-xenon.de%2Flogin%2Fgeneric_oauth',
   });
 
   return links;
